@@ -55,10 +55,10 @@
   --light-gray: #F1F5F9;
   --gray: #dbdbdb;
   --medium-gray: #475569;
-  --dark-gray: #334155;
-  --darker-gray: #1E293B;
-  --black: #1c1c1c;
-  --black-soft: #0A0A0A;
+  --dark-gray: #414345;
+  --darker-gray: #333438;
+  --black: #101010;
+  --black-soft: #181818;
 
   /* Colores de estado */
   --success: #10B981;
@@ -168,7 +168,7 @@ body {
 }
 
 .btn-primary {
-  background-color: var(--primary-color);
+  background-color: var(--derk-gray);
   color: var(--white);
   border: none;
   box-shadow: var(--shadow-md);
@@ -181,14 +181,14 @@ body {
 }
 
 .btn-secondary {
-  background-color: var(--secondary-color);
+  background-color: var(--accent-color);
   color: var(--white);
   border: none;
   box-shadow: var(--shadow-md);
 }
 
 .btn-secondary:hover {
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   color: var(--white);
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
@@ -316,12 +316,12 @@ body {
 
 .hero-title {
   font-family: var(--font-primary);
-  font-size: 3.5rem;
+  font-size: 3.2rem;
   font-weight: var(--font-weight-bold);
   color: var(--white);
   line-height: 1.1;
   margin-bottom: var(--spacing-md);
-  letter-spacing: -0.025em;
+  letter-spacing: -0.035em;
 }
 
 .accent {
@@ -425,8 +425,10 @@ body {
 
 .product-card:hover {
   transform: translateY(-8px);
+    border-radius: var(--border-radius-lg);
+
   box-shadow: var(--shadow-xl);
-  border-color: var(--border-primary);
+  border-image: linear-gradient(135deg, #E53E3E 0%, #D946EF 25%, #FF8C00 50%, #9F7AEA 75%, #68D391 100%) 1;
 }
 
 .product-image {
@@ -476,9 +478,139 @@ body {
 
 .product-price {
   font-weight: 600;
-  color: var(--primary-color);
   font-size: 1.2rem;
   align-self: flex-start;
+}
+
+/* Social Media Separator */
+.social-separator {
+  position: relative;
+  padding: var(--spacing-md) 0;
+  overflow: hidden;
+  background: var(--black) url('img/image2.png') center/cover;
+}
+
+.social-separator::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6); /* Reducido de 0.85 a 0.4 para ver más la imagen */
+  z-index: 1;
+}
+  
+
+
+.social-separator::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(2px);
+  z-index: 2;
+}
+
+.social-separator-container {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-sm);
+  z-index: 3;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, 
+    #E53E3E 0%,      /* Rojo */
+    #D946EF 25%,     /* Magenta */
+    #FF8C00 50%,     /* Naranja */
+    #9F7AEA 75%,     /* Púrpura */
+    #68D391 100%     /* Verde */
+  );
+  color: var(--white);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    #4FD1C7 0%,      /* Cian */
+    #68D391 25%,     /* Verde */
+    #9F7AEA 50%,     /* Púrpura */
+    #FF8C00 75%,     /* Naranja */
+    #D946EF 100%     /* Magenta */
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.social-icon:hover::before {
+  opacity: 1;
+}
+
+.social-icon:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.social-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.social-icon:hover svg {
+  transform: scale(1.2);
+}
+
+/* Responsive design para el separador */
+@media (max-width: 768px) {
+  .social-separator {
+    padding: var(--spacing-sm) 0;
+  }
+  
+  .social-icons {
+    gap: var(--spacing-md);
+  }
+  
+  .social-icon {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .social-icon svg {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 /* Gallery Section */
