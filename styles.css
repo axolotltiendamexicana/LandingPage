@@ -168,7 +168,7 @@ body {
 }
 
 .btn-primary {
-  background-color: var(--derk-gray);
+  background-color: var(--secondary-color);
   color: var(--white);
   border: none;
   box-shadow: var(--shadow-md);
@@ -181,7 +181,7 @@ body {
 }
 
 .btn-secondary {
-  background-color: var(--accent-color);
+  background-color: var(--secondary-color);
   color: var(--white);
   border: none;
   box-shadow: var(--shadow-md);
@@ -301,7 +301,7 @@ body {
 
 
 .hero-container {
-  max-width: 1200px;
+  max-width: 1500px;
   margin: 0 auto;
   padding: 0 var(--spacing-sm);
   display: grid;
